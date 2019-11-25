@@ -21,6 +21,7 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    //todo
     @Override
     public List<Medicamento> retornarMedicamentos() {
         return null;
