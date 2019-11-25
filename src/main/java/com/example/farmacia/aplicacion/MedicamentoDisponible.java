@@ -3,6 +3,7 @@ package com.example.farmacia.aplicacion;
 
 import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.ServicioMedicamento;
+import com.example.farmacia.infraestructura.Repositorio;
 
 import java.util.List;
 

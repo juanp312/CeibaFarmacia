@@ -1,6 +1,6 @@
 package com.example.farmacia.aplicacion;
 
-import com.example.farmacia.dominio.ServicioMedicamento;
+import com.example.farmacia.infraestructura.Repositorio;
 
 public class EliminarMedicamento {
 

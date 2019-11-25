@@ -1,14 +1,14 @@
 package com.example.farmacia.dominio;
 
 
-import com.example.farmacia.aplicacion.Repositorio;
-
-public class ServicioMedicamento implements  RepositorioMedicamento {
+public class ServicioMedicamento{
 
     private final RepositorioMedicamento repositorioMedicamento;
+    private final RepositorioComprar repositorioComprar;
 
-    public ServicioMedicamento(RepositorioMedicamento repositorioMedicamento) {
+    public ServicioMedicamento(RepositorioMedicamento repositorioMedicamento, RepositorioComprar repositorioComprar) {
         this.repositorioMedicamento = repositorioMedicamento;
+        this.repositorioComprar = repositorioComprar;
     }
 
     //todo validacion agregar Medicamento
