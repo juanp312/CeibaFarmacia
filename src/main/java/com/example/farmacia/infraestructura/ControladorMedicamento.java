@@ -5,6 +5,7 @@ import com.example.farmacia.aplicacion.ComprarMedicamento;
 import com.example.farmacia.aplicacion.EliminarMedicamento;
 import com.example.farmacia.aplicacion.MedicamentoDisponible;
 import com.example.farmacia.dominio.Medicamento;
+import com.example.farmacia.infraestructura.dto.MedicamentoDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,8 +28,8 @@ public class ControladorMedicamento {
     @CrossOrigin
     @PostMapping("/medicamento")
     @ResponseStatus(HttpStatus.CREATED)
-    public Medicamento agregar(String nombre, String codigoMedicamento){
-    return agregarMedicamento.ejecutar(nombre, codigoMedicamento);
+    public Medicamento agregar(@RequestBody MedicamentoDto medicamentoDto){
+    return agregarMedicamento.ejecutar(medicamentoDto.getNombre(), medicamentoDto.getCodigoMedicamento());
 }
     @CrossOrigin
     @DeleteMapping("/medicamento/{nombre}/{codigoMedicamento}")

@@ -3,7 +3,6 @@ package com.example.farmacia.aplicacion;
 
 import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.RepositorioMedicamento;
-import com.example.farmacia.dominio.ServicioMedicamento;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
