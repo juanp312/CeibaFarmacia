@@ -4,11 +4,9 @@ import com.example.farmacia.dominio.ServicioMedicamento;
 
 public class EliminarMedicamento {
 
-    private final ServicioMedicamento servicioMedicamento;
     private final Repositorio repositorioMedicamento;
 
-    public EliminarMedicamento(ServicioMedicamento servicioMedicamento, Repositorio repositorioMedicamento) {
-        this.servicioMedicamento = servicioMedicamento;
+    public EliminarMedicamento(Repositorio repositorioMedicamento) {
         this.repositorioMedicamento = repositorioMedicamento;
     }
 

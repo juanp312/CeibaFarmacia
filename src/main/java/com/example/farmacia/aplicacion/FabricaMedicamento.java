@@ -10,6 +10,9 @@ import com.example.farmacia.dominio.Medicamento;
     }
 
     public void suprimir(String nombre, String codigoMedicamento){
+    }
 
+    public Medicamento transaccion(String nombre, String codigoMedicamento){
+        return new Medicamento(nombre, codigoMedicamento);
     }
 }

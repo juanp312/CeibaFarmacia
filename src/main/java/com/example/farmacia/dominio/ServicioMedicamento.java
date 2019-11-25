@@ -17,8 +17,12 @@ public class ServicioMedicamento implements  RepositorioMedicamento {
     }
 
     //todo validacion eliminar medicamento
-
     public void eliminarMedicamento (String codigoMedicamento){
+
+    }
+
+    //todo validacion para comprar
+    public void comprarMedicamento(){
 
     }
 }
