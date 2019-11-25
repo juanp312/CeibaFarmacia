@@ -1,6 +1,5 @@
 package com.example.farmacia.dominio;
 
-
 public final class Medicamento {
 
     private String nombreMedicamento;

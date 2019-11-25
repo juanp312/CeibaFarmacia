@@ -1,16 +1,18 @@
 package com.example.farmacia.aplicacion;
 
-import com.example.farmacia.infraestructura.Repositorio;
+import com.example.farmacia.dominio.RepositorioMedicamento;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EliminarMedicamento {
 
-    private final Repositorio repositorioMedicamento;
+    private final RepositorioMedicamento repositorio;
 
-    public EliminarMedicamento(Repositorio repositorioMedicamento) {
-        this.repositorioMedicamento = repositorioMedicamento;
+    public EliminarMedicamento(RepositorioMedicamento repositorio) {
+        this.repositorio = repositorio;
     }
 
     public void borrar(String codigoMedicamento){
-        repositorioMedicamento.deleteById(codigoMedicamento);
+        repositorio.eliminarMedicamento(codigoMedicamento);
     }
 }

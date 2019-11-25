@@ -1,5 +1,7 @@
 package com.example.farmacia.dominio;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 public class Compra {

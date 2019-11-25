@@ -1,5 +1,6 @@
 package com.example.farmacia.dominio;
 
+import org.springframework.stereotype.Component;
 
 public final class Usuario {
 

@@ -3,15 +3,15 @@ package com.example.farmacia.aplicacion;
 
 import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.ServicioMedicamento;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class AgregarMedicamento {
 
-    private final ServicioMedicamento servicioMedicamento;
+
     private final FabricaMedicamento fabricaMedicamento;
 
-    public AgregarMedicamento(ServicioMedicamento servicioMedicamento, FabricaMedicamento fabricaMedicamento) {
-        this.servicioMedicamento = servicioMedicamento;
+    public AgregarMedicamento(FabricaMedicamento fabricaMedicamento) {
         this.fabricaMedicamento = fabricaMedicamento;
 
     }

@@ -1,8 +1,14 @@
 package com.example.farmacia.dominio;
 
+
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
 public interface RepositorioMedicamento {
+    List<Medicamento> retornarMedicamentos();
 
-    Medicamento adicionarMedicamento (Medicamento medicamento);
-    void eliminarMedicamento(String codigoMedicamento);
-    }
+    void eliminarMedicamento(String id);
 
+}

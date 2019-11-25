@@ -1,6 +1,10 @@
 package com.example.farmacia.dominio;
 
+import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
+@Component
 public class ServicioMedicamento{
 
     private final RepositorioMedicamento repositorioMedicamento;
@@ -13,6 +17,7 @@ public class ServicioMedicamento{
 
     //todo validacion agregar Medicamento
     public Medicamento adicionarMedicamento(Medicamento medicamento){
+
     return medicamento;
     }
 

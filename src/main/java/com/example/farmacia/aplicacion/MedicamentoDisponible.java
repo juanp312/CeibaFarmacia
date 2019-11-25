@@ -2,25 +2,23 @@ package com.example.farmacia.aplicacion;
 
 
 import com.example.farmacia.dominio.Medicamento;
+import com.example.farmacia.dominio.RepositorioMedicamento;
 import com.example.farmacia.dominio.ServicioMedicamento;
-import com.example.farmacia.infraestructura.Repositorio;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class MedicamentoDisponible {
 
-    private final ServicioMedicamento servicioMedicamento;
-    private final FabricaMedicamento fabricaMedicamento;
-    private final Repositorio repositorio;
+    private final RepositorioMedicamento repositorio;
 
-    public MedicamentoDisponible(ServicioMedicamento servicioMedicamento, FabricaMedicamento fabricaMedicamento, Repositorio repositorio) {
-        this.servicioMedicamento = servicioMedicamento;
-        this.fabricaMedicamento = fabricaMedicamento;
+    public MedicamentoDisponible(RepositorioMedicamento repositorio) {
         this.repositorio = repositorio;
     }
 
     public List<Medicamento> consultar(){
-        List<Medicamento> listaMedicamento = repositorio.findAll();
+        List<Medicamento> listaMedicamento = repositorio.retornarMedicamentos();
         return  listaMedicamento;
     }
 }
