@@ -29,7 +29,7 @@ public class ControladorMedicamento {
     @PostMapping("/medicamento")
     @ResponseStatus(HttpStatus.CREATED)
     public Medicamento agregar(@RequestBody MedicamentoDto medicamentoDto){
-    return agregarMedicamento.ejecutar(medicamentoDto.getNombre(), medicamentoDto.getCodigoMedicamento());
+    return agregarMedicamento.ejecutar(medicamentoDto.getNombreMedicamento(), medicamentoDto.getCodigoMedicamento());
 }
     @CrossOrigin
     @DeleteMapping("/medicamento/{nombre}/{codigoMedicamento}")

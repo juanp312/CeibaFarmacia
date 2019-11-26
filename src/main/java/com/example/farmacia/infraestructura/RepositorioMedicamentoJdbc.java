@@ -2,7 +2,7 @@ package com.example.farmacia.infraestructura;
 
 import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.RepositorioMedicamento;
-import com.example.farmacia.dominio.excepcion.RegistroNoInsertadoException;
+import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -49,7 +49,7 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
         if(registrosInsertados > 0) {
             return medicamento;
         } else {
-            throw new RegistroNoInsertadoException();
+            throw new RegistroInvalidoException();
         }
     }
 }

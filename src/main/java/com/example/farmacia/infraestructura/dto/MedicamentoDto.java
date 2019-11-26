@@ -6,13 +6,13 @@ import javax.validation.constraints.NotNull;
 public class MedicamentoDto {
 
     @NotNull
-    private String nombre;
+    private String nombreMedicamento;
 
     @NotNull
     private String codigoMedicamento;
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreMedicamento() {
+        return nombreMedicamento;
     }
 
     public String getCodigoMedicamento() {

@@ -1,7 +1,7 @@
 package com.example.farmacia.dominio;
 
 import com.example.farmacia.dominio.excepcion.RegistroNoEncontradoException;
-import com.example.farmacia.dominio.excepcion.RegistroNoInsertadoException;
+import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 
@@ -25,9 +25,9 @@ public class ServicioMedicamento {
     public Medicamento adicionarMedicamento(Medicamento medicamento) {
         if (medicamento.getNombreMedicamento().toUpperCase().startsWith("A") ||
                 medicamento.getNombreMedicamento().toUpperCase().startsWith("B")) {
-            return medicamento = repositorioMedicamento.crearMedicamento(medicamento);
+            return repositorioMedicamento.crearMedicamento(medicamento);
         }
-        throw new RegistroNoInsertadoException("No se pueden agregar medicamentos de este tipo");
+        throw new RegistroInvalidoException("No se pueden agregar medicamentos de este tipo");
     }
 
     //todo validacion eliminar medicamento
