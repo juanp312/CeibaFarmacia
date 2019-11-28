@@ -1,5 +1,6 @@
 package com.example.farmacia.aplicacion;
 
+import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.RepositorioMedicamento;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,6 @@ public class EliminarMedicamento {
     }
 
     public void borrar(String codigoMedicamento){
-        repositorio.eliminarMedicamento(codigoMedicamento);
+        repositorio.eliminar(codigoMedicamento);
     }
 }

@@ -25,27 +25,27 @@ public class ControladorMedicamento {
         this.comprarMedicamento = comprarMedicamento;
         this.medicamentoDisponible = medicamentoDisponible;
     }
-    @CrossOrigin
+
     @PostMapping("/medicamento")
     @ResponseStatus(HttpStatus.CREATED)
     public Medicamento agregar(@RequestBody MedicamentoDto medicamentoDto){
     return agregarMedicamento.ejecutar(medicamentoDto.getNombreMedicamento(), medicamentoDto.getCodigoMedicamento());
 }
-    @CrossOrigin
-    @DeleteMapping("/medicamento/{nombre}/{codigoMedicamento}")
+
+    @DeleteMapping("/medicamento/{codigoMedicamento}")
     @ResponseStatus(HttpStatus.OK)
-    public void eliminar(String codigoMedicamento){
+    public void eliminar(@PathVariable String codigoMedicamento) {
         eliminarMedicamento.borrar(codigoMedicamento);
     }
 
-    @CrossOrigin
-    @GetMapping("/medicamentosDisponibles")
+
+    @GetMapping("/medicamento")
     @ResponseStatus(HttpStatus.OK)
     public List<Medicamento> traerListaMedicamentos(){
         return medicamentoDisponible.consultar();
     }
 
-    @CrossOrigin
+
     @PostMapping("/comprarMedicamento/{codigoMedicamento}")
     @ResponseStatus(HttpStatus.OK)
     public Medicamento comprar(String nombre, String codigoMedicamento){

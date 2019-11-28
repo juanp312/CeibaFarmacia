@@ -17,7 +17,7 @@ public class MedicamentoDisponible {
     }
 
     public List<Medicamento> consultar(){
-        List<Medicamento> listaMedicamento = repositorio.retornarMedicamentos();
+        List<Medicamento> listaMedicamento = repositorio.retornar();
         return  listaMedicamento;
     }
 }

@@ -45,7 +45,7 @@ public class ControladorMedicamentoTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         controladorMedicamento = new ControladorMedicamento(agregarMedicamentoMock,eliminarMedicamentoMock,
-                                comprarMedicamentoMock,medicamentoDisponibleMock);
+                comprarMedicamentoMock,medicamentoDisponibleMock);
         mockMvc = MockMvcBuilders.standaloneSetup(controladorMedicamento).build();
     }
 

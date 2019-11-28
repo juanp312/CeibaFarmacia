@@ -35,13 +35,13 @@ public class ServicioMedicamentoTest {
 
         //Arrange
         Medicamento medicamento = MedicamentoDataBuilder.crearMedicamentoNombreValido();
-        when(repositorioMedicamentoMock.crearMedicamento(any(Medicamento.class))).thenReturn(medicamento);
+        when(repositorioMedicamentoMock.crear(any(Medicamento.class))).thenReturn(medicamento);
 
         //Act
         Medicamento medicamentoGuardado = servicioMedicamento.adicionarMedicamento(medicamento);
 
         // Assert
-        verify(repositorioMedicamentoMock, times(1)).crearMedicamento(any(Medicamento.class));
+        verify(repositorioMedicamentoMock, times(1)).crear(any(Medicamento.class));
         Assert.assertEquals(medicamentoGuardado, medicamento);
     }
 
@@ -54,7 +54,7 @@ public class ServicioMedicamentoTest {
         Medicamento medocamentoNoGuardado = servicioMedicamento.adicionarMedicamento(medicamento);
 
         //Assert
-        verify(repositorioMedicamentoMock, times(0)).crearMedicamento(any(Medicamento.class));
+        verify(repositorioMedicamentoMock, times(0)).crear(any(Medicamento.class));
 
     }
 

@@ -8,10 +8,12 @@ import java.util.List;
 @Repository
 public interface RepositorioMedicamento {
 
-    Medicamento crearMedicamento(Medicamento medicamento);
+    Medicamento crear(Medicamento medicamento);
 
-    List<Medicamento> retornarMedicamentos();
+    List<Medicamento> retornar();
 
-    Integer eliminarMedicamento(String codigoMedicamento);
+    String  eliminar(String codigoMedicamento);
+
+    Medicamento retornarPorId(String codigoMedicamento);
 
 }

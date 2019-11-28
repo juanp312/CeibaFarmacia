@@ -25,7 +25,7 @@ public class MedicamentoDataBuilder {
     }
 
     public Medicamento build() {
-        return new Medicamento(this.nombreMedicamento, this.codigoMedicamento);
+        return new Medicamento(this.nombreMedicamento, this.codigoMedicamento, null);
     }
 
     public static Medicamento crearMedicamentoNombreValido(){
