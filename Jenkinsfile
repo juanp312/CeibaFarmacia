@@ -53,10 +53,4 @@ pipeline {
          		}
 
       }
-
-       post {
-      	success {
-      		junit 'build/test-results/test/*.xml'
-      	}
-      }
    }
