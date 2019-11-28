@@ -38,6 +38,7 @@ pipeline {
          steps {
 
             sh "gradle --b ./build.gradle test"
+            sh "gradle --b ./build.gradle jacocoTestReport"
 
             }
          }
