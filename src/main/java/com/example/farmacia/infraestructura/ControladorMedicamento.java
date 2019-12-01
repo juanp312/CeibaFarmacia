@@ -4,11 +4,14 @@ import com.example.farmacia.aplicacion.AgregarMedicamento;
 import com.example.farmacia.aplicacion.ComprarMedicamento;
 import com.example.farmacia.aplicacion.EliminarMedicamento;
 import com.example.farmacia.aplicacion.MedicamentoDisponible;
+import com.example.farmacia.dominio.Compra;
 import com.example.farmacia.dominio.Medicamento;
+import com.example.farmacia.infraestructura.dto.ComprarDto;
 import com.example.farmacia.infraestructura.dto.MedicamentoDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,7 +31,7 @@ public class ControladorMedicamento {
 
     @PostMapping("/medicamento")
     @ResponseStatus(HttpStatus.CREATED)
-    public Medicamento agregar(@RequestBody MedicamentoDto medicamentoDto){
+    public Medicamento agregar(@Valid @RequestBody MedicamentoDto medicamentoDto){
     return agregarMedicamento.ejecutar(medicamentoDto.getNombreMedicamento(), medicamentoDto.getCodigoMedicamento());
 }
 
@@ -48,7 +51,8 @@ public class ControladorMedicamento {
 
     @PostMapping("/comprarMedicamento/{codigoMedicamento}")
     @ResponseStatus(HttpStatus.OK)
-    public Medicamento comprar(String nombre, String codigoMedicamento){
-        return comprarMedicamento.realizarCompra(nombre, codigoMedicamento);
+    public Compra comprar(@Valid @RequestBody ComprarDto comprarDto){
+        return comprarMedicamento.realizarCompra(comprarDto.getNumeroIdentidad(), comprarDto.getCodigoMedicamento(), comprarDto.getMedioPago(),
+                                        comprarDto.getRecetaMedica(), comprarDto.getCantidad());
     }
 }

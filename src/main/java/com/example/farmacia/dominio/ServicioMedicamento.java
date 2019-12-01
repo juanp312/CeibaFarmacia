@@ -2,8 +2,6 @@ package com.example.farmacia.dominio;
 
 import com.example.farmacia.dominio.excepcion.RegistroNoEncontradoException;
 import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
-import org.apache.tomcat.jni.Local;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -15,10 +13,12 @@ import java.util.stream.Collectors;
 public class ServicioMedicamento {
 
     private final RepositorioMedicamento repositorioMedicamento;
-    private final RepositorioComprar repositorioComprar;
+    private final RepositorioCompra repositorioComprar;
+    private Compra compra;
+    private Medicamento medicamento;
 
 
-    public ServicioMedicamento(RepositorioMedicamento repositorioMedicamento, RepositorioComprar repositorioComprar) {
+    public ServicioMedicamento(RepositorioMedicamento repositorioMedicamento, RepositorioCompra repositorioComprar) {
         this.repositorioMedicamento = repositorioMedicamento;
         this.repositorioComprar = repositorioComprar;
     }
@@ -35,15 +35,15 @@ public class ServicioMedicamento {
 
     //todo validacion eliminar medicamento
     public void eliminarMedicamento(String codigoMedicamento) {
-        Medicamento medicamento;
+
         //Optional<Medicamento> medicamentoRetornado = repositorioMedicamento.retornarPorId(codigoMedicamento);
         Optional<Medicamento> medicamentoRetornado = Optional.of(repositorioMedicamento.retornarPorId(codigoMedicamento));
         if ( noExisteMedicamentoDisponible(medicamentoRetornado)){
             throw new RegistroNoEncontradoException("No existe el medicamento " + codigoMedicamento);
         }
         medicamento = medicamentoRetornado.get();
-        Integer cantidadActualStock = medicamento.getStock().getCantidadDisponible();
-        medicamento.getStock().setCantidadDisponible(cantidadActualStock - 1);
+       // Integer cantidadActualStock = medicamento.getStock().getCantidadDisponible();
+//        medicamento.getStock().setCantidadDisponible(cantidadActualStock - 1);
         repositorioMedicamento.crear(medicamento);
     }
 
@@ -53,24 +53,26 @@ public class ServicioMedicamento {
                                      .collect(Collectors.toList());
     }
     //todo validacion para comprar
-    public void comprarMedicamento (String codigoMedicamento) {
-        Medicamento medicamento;
-        Compra compra = new Compra();
-        Boolean medioPago = compra.getMedioDePago();
-        Boolean receta = compra.getRecetaMedica();
-        if(medioPago){
-        }
-        Optional<Medicamento> medicamentoRetornado = Optional.of(repositorioMedicamento.retornarPorId(codigoMedicamento));
+    public Compra comprarMedicamento (Compra compra) {
+
+
+        Optional<Medicamento> medicamentoRetornado = Optional.of(repositorioMedicamento.retornarPorId(medicamento.getCodigoMedicamento()));
         if ( noExisteMedicamentoDisponible(medicamentoRetornado)){
-            throw new RegistroNoEncontradoException("No existe el medicamento " + codigoMedicamento);
+            throw new RegistroNoEncontradoException("No existe el medicamento " + medicamento.getCodigoMedicamento());
         }
-        medicamento = medicamentoRetornado.get();
+
+
+               medicamento = medicamentoRetornado.get();
         LocalDate fechaCompra = LocalDate.now();
-        Integer cantidadDisponibleActual = medicamento.getStock().getCantidadDisponible();
-        Integer cantidadVendidaActual = medicamento.getStock().getCantidadVendida();
-        medicamento.getStock().setCantidadDisponible(cantidadDisponibleActual - 1);
-        medicamento.getStock().setCantidadVendida(cantidadVendidaActual + 1);
-        medicamento.getStock().getCompras().add(crearCompra(fechaCompra));
+//        Integer cantidadDisponibleActual = medicamento.getStock().getCantidadDisponible();
+//        Integer cantidadVendidaActual = medicamento.getStock().getCantidadVendida();
+//        medicamento.getStock().setCantidadDisponible(cantidadDisponibleActual - 1);
+//        medicamento.getStock().setCantidadVendida(cantidadVendidaActual + 1);
+//        medicamento.getStock().getCompras().add(crearCompra(fechaCompra));
+        Medicamento medicamentoReserva = repositorioMedicamento.crear(medicamento);
+
+       // return medicamentoReserva;
+        return null;
 
     }
 
@@ -78,15 +80,15 @@ public class ServicioMedicamento {
         if(!medicamentoRetornado.isPresent()){
             return true;
         }
-        if(medicamentoRetornado.get().getStock().getCantidadDisponible() == Integer.valueOf(0)){
-            return  true;
-        }
+//        if(medicamentoRetornado.get().getStock().getCantidadDisponible() == Integer.valueOf(0)){
+//            return  true;
+//        }
         return false;
     }
 
     private Compra crearCompra(LocalDate fecha){
-        Compra compra = new Compra();
-        compra.setFecha(LocalDate.now());
+//        Compra compra = new Compra();
+//        compra.setFecha(LocalDate.now());
         return compra;
     }
 }

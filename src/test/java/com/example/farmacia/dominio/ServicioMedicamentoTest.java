@@ -21,7 +21,7 @@ public class ServicioMedicamentoTest {
     private RepositorioMedicamento repositorioMedicamentoMock;
 
     @Mock
-    private RepositorioComprar repositorioComprarMock;
+    private RepositorioCompra repositorioComprarMock;
 
     @Before
     public void setUp() throws Exception {

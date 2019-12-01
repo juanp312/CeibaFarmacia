@@ -73,4 +73,10 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
                 new Object[]{codigoMedicamento},
                 new BeanPropertyRowMapper<Medicamento>(Medicamento.class));
     }
+
+    @Override
+    public List<Medicamento> stockDisponible() {
+        return jdbcTemplate.query("select * medicamento where disponibilidad = true",
+                new BeanPropertyRowMapper<Medicamento>(Medicamento.class));
+    }
 }

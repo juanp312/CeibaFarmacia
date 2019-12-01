@@ -1,11 +1,10 @@
 package com.example.farmacia.dominio;
 
 
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+
 public interface RepositorioMedicamento {
 
     Medicamento crear(Medicamento medicamento);
@@ -16,4 +15,5 @@ public interface RepositorioMedicamento {
 
     Medicamento retornarPorId(String codigoMedicamento);
 
+    List<Medicamento> stockDisponible();
 }

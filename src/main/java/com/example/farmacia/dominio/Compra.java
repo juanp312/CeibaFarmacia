@@ -6,51 +6,42 @@ import java.util.List;
 
 public class Compra {
 
-    private Long id;
-    private List<Medicamento> listaMedicamento;
-    private Usuario usuario;
-    private Boolean medioDePago;
+    private String codigoMedicamento;
+    private Long numeroIdentidad;
+    private String medioPago;
     private Boolean recetaMedica;
+    private Integer cantidad;
     private LocalDate fecha;
 
-    public Compra(Long id, List<Medicamento> listaMedicamento, Usuario usuario, Boolean medioDePago, Boolean recetaMedica, LocalDate fecha) {
-        this.id = id;
-        this.listaMedicamento = listaMedicamento;
-        this.usuario = usuario;
-        this.medioDePago = medioDePago;
+    public Compra(String codigoMedicamento, Long numeroIdentidad, String medioPago, Boolean recetaMedica, Integer cantidad) {
+        this.codigoMedicamento = codigoMedicamento;
+        this.numeroIdentidad = numeroIdentidad;
+        this.medioPago = medioPago;
         this.recetaMedica = recetaMedica;
-        this.fecha = fecha;
+        this.cantidad = cantidad;
     }
 
-    public Compra() {
-
+    public String getCodigoMedicamento() {
+        return codigoMedicamento;
     }
 
-    public Long getId() {
-        return id;
+    public Long getNumeroIdentidad() {
+        return numeroIdentidad;
     }
 
-    public List<Medicamento> getListaMedicamento() {
-        return listaMedicamento;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public Boolean getMedioDePago() {
-        return medioDePago;
+    public String getMedioPago() {
+        return medioPago;
     }
 
     public Boolean getRecetaMedica() {
         return recetaMedica;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public Integer getCantidad() {
+        return cantidad;
     }
 
-    public final void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public LocalDate getFecha() {
+        return fecha;
     }
 }
