@@ -2,11 +2,10 @@ package com.example.farmacia.dominio;
 
 import com.example.farmacia.dominio.excepcion.RegistroNoEncontradoException;
 import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -32,37 +31,12 @@ public class ServicioMedicamento {
     }
 
     //todo validacion eliminar medicamento
-    public void eliminarMedicamento(String codigoMedicamento) {
-        Medicamento medicamento;
-       //  Optional<Medicamento> medicamentoRetornado = repositorioMedicamento.retornarPorId(codigoMedicamento);
-
-
-        //Optional<Medicamento> medicamentoRetornado = repositorioMedicamento.retornarPorId(codigoMedicamento);
-
-        Optional<Medicamento> medicamentoRetornado = Optional.of(repositorioMedicamento.retornarPorId(codigoMedicamento));
-        if (noExisteMedicamentoDisponible(medicamentoRetornado)) {
-            throw new RegistroNoEncontradoException("No existe el medicamento " + codigoMedicamento);
+    public void eliminarMedicamento(Integer id) {
+        try {
+            repositorioMedicamento.eliminar(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new RegistroNoEncontradoException("No se encontro registro para el Id solicitado");
         }
-        medicamento = medicamentoRetornado.get();
-        // Integer cantidadActualStock = medicamento.getStock().getCantidadDisponible();
-//        medicamento.getStock().setCantidadDisponible(cantidadActualStock - 1);
-        repositorioMedicamento.crear(medicamento);
-    }
 
-    //todo validacion traerMedicamentos
-    public List<Medicamento> listaMedicamentos() {
-        return repositorioMedicamento.retornar().stream()
-                .collect(Collectors.toList());
-    }
-
-
-    private boolean noExisteMedicamentoDisponible(Optional<Medicamento> medicamentoRetornado){
-        if(!medicamentoRetornado.isPresent()){
-            return true;
-        }
-//        if(medicamentoRetornado.get().getStock().getCantidadDisponible() == Integer.valueOf(0)){
-//            return  true;
-//        }
-        return false;
     }
 }

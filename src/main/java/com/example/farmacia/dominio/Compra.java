@@ -13,6 +13,10 @@ public class Compra {
     private Integer cantidad;
     private LocalDate fecha;
 
+    public Compra(){
+
+    }
+
     public Compra(String codigoMedicamento, Long numeroIdentidad, Integer edad, String medioPago, Boolean recetaMedica, Integer cantidad) {
         this.codigoMedicamento = codigoMedicamento;
         this.numeroIdentidad = numeroIdentidad;
@@ -21,7 +25,6 @@ public class Compra {
         this.recetaMedica = recetaMedica;
         this.cantidad = cantidad;
         this.fecha = LocalDate.now();
-
     }
 
     public String getCodigoMedicamento() {

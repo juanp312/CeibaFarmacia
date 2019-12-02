@@ -2,23 +2,24 @@ package com.example.farmacia.infraestructura;
 
 
 import com.example.farmacia.aplicacion.ComprarMedicamento;
+import com.example.farmacia.aplicacion.ComprasHechas;
 import com.example.farmacia.dominio.Compra;
 import com.example.farmacia.infraestructura.dto.ComprarDto;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class ControladorCompra {
 
     private final ComprarMedicamento comprarMedicamento;
+    private final ComprasHechas comprasHechas;
 
-    public ControladorCompra(ComprarMedicamento comprarMedicamento) {
+    public ControladorCompra(ComprarMedicamento comprarMedicamento, ComprasHechas comprasHechas) {
         this.comprarMedicamento = comprarMedicamento;
+        this.comprasHechas = comprasHechas;
     }
 
     @PostMapping("/comprarMedicamento")
@@ -26,5 +27,11 @@ public class ControladorCompra {
     public Compra comprar(@Valid @RequestBody ComprarDto comprarDto){
         return comprarMedicamento.realizarCompra(comprarDto.getNumeroIdentidad(), comprarDto.getEdad(), comprarDto.getCodigoMedicamento(), comprarDto.getMedioPago(),
                 comprarDto.getRecetaMedica(), comprarDto.getCantidad());
+    }
+
+    @GetMapping("/compras")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Compra> listaCompras(){
+        return comprasHechas.consultar();
     }
 }

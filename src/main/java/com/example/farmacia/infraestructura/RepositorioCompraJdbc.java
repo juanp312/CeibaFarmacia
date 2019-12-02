@@ -2,12 +2,14 @@ package com.example.farmacia.infraestructura;
 
 import com.example.farmacia.dominio.*;
 import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
+import java.util.List;
 
 @Repository
 public class RepositorioCompraJdbc implements RepositorioCompra {
@@ -50,6 +52,11 @@ public class RepositorioCompraJdbc implements RepositorioCompra {
                 Integer.class);
     }
 
+    @Override
+    public List<Compra> retornar() {
+        return jdbcTemplate.query("SELECT * FROM COMPRA ",
+                new BeanPropertyRowMapper<Compra>(Compra.class));
+    }
 }
 
 

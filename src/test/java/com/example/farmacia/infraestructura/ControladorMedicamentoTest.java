@@ -3,7 +3,6 @@ package com.example.farmacia.infraestructura;
 import com.example.farmacia.aplicacion.AgregarMedicamento;
 import com.example.farmacia.aplicacion.ComprarMedicamento;
 import com.example.farmacia.aplicacion.EliminarMedicamento;
-import com.example.farmacia.aplicacion.MedicamentoDisponible;
 import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.MedicamentoDataBuilder;
 import com.example.farmacia.dominio.excepcion.RegistroNoEncontradoException;

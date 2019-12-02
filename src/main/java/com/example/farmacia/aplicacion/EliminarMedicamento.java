@@ -13,7 +13,7 @@ public class EliminarMedicamento {
         this.repositorio = repositorio;
     }
 
-    public void borrar(String codigoMedicamento){
-        repositorio.eliminar(codigoMedicamento);
+    public void borrar(Integer id){
+        repositorio.eliminar(id);
     }
 }

@@ -23,27 +23,10 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
     }
 
 
-    //todo
     @Override
-    public List<Medicamento> retornar() {
-        return jdbcTemplate.query("select id from medicamento",
-                new BeanPropertyRowMapper<Medicamento>(Medicamento.class));
-    }
-
-    @Override
-    public String eliminar(String codigoMedicamento) {
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        Integer registro = jdbcTemplate.update(connection -> {
-            PreparedStatement ps = connection
-                    .prepareStatement("delete from medicamento where id = ?");
-            ps.setString(1, codigoMedicamento);
-            return ps;
-        }, keyHolder);
-        if (registro > 0) {
-            return codigoMedicamento;
-        } else {
-            throw new RegistroInvalidoException();
-        }
+    public Integer eliminar(Integer id) {
+        return jdbcTemplate.update("DELETE FROM MEDICAMENTO WHERE ID = ?",
+                id);
     }
 
     @Override
@@ -67,14 +50,6 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
         }
     }
 
-    @Override
-    public Medicamento retornarPorId(String codigoMedicamento) {
-        return jdbcTemplate.queryForObject("select * from medicamento where id = ?",
-                new Object[]{codigoMedicamento},
-                new BeanPropertyRowMapper<Medicamento>(Medicamento.class));
-    }
-
-
 
     @Override
     public Integer actualizarDisponibilidadMedicamento(Integer unidadesHaActualizar, String codigoMedicamento) {
@@ -83,5 +58,4 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
                 unidadesHaActualizar);
     }
 }
-
 
