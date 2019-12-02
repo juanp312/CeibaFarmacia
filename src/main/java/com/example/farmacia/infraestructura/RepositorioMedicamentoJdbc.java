@@ -26,7 +26,7 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
     //todo
     @Override
     public List<Medicamento> retornar() {
-        return jdbcTemplate.query("select * from medicamento",
+        return jdbcTemplate.query("select id from medicamento",
                 new BeanPropertyRowMapper<Medicamento>(Medicamento.class));
     }
 
@@ -45,7 +45,6 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
             throw new RegistroInvalidoException();
         }
     }
-
 
     @Override
     public Medicamento crear(Medicamento medicamento) {
