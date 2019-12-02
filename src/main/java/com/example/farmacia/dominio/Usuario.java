@@ -1,6 +1,5 @@
 package com.example.farmacia.dominio;
 
-import org.springframework.stereotype.Component;
 
 public final class Usuario {
 
@@ -22,7 +21,7 @@ public final class Usuario {
         return nombre;
     }
 
-    public Integer getEdad() {
+    public Integer getEdad(Integer numeroIdentidad) {
         return edad;
     }
 }

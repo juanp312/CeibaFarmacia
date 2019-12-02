@@ -4,12 +4,13 @@ public final class Medicamento {
 
     private String nombreMedicamento;
     private String codigoMedicamento;
-    private Stock stock;
+    private Boolean disponibilidad;
 
-    public Medicamento(String nombreMedicamento, String codigoMedicamento, Stock stock) {
+    public Medicamento(String nombreMedicamento, String codigoMedicamento, Boolean disponibilidad) {
         this.nombreMedicamento = nombreMedicamento;
         this.codigoMedicamento = codigoMedicamento;
-        this.stock = stock;
+        this.disponibilidad = disponibilidad;
+
     }
 
     public String getNombreMedicamento() {
@@ -20,7 +21,4 @@ public final class Medicamento {
         return codigoMedicamento;
     }
 
-    public Stock getStock() {
-        return stock;
-    }
 }
