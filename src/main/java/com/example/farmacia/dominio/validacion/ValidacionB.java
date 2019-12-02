@@ -1,12 +1,15 @@
 package com.example.farmacia.dominio.validacion;
 
-import com.example.farmacia.dominio.Medicamento;
-import com.example.farmacia.dominio.validacion.Validacion;
+import com.example.farmacia.dominio.Compra;
 
 public class ValidacionB implements Validacion {
 
+
     @Override
-    public Validacion validar(String codigoMedicamento) {
-        return null;
+    public Boolean validar(Compra compra, Integer unidadesDisponibles) {
+        if(compra.getRecetaMedica().equals(false)){
+            return false;
+        }
+        return true;
     }
 }

@@ -2,17 +2,24 @@ package com.example.farmacia.dominio.validacion;
 
 import com.example.farmacia.dominio.Compra;
 import com.example.farmacia.dominio.Medicamento;
-import com.example.farmacia.dominio.validacion.Validacion;
+import com.example.farmacia.dominio.MedioPagoEnum;
 
 public class ValidacionA implements Validacion {
-    private Compra compra;
+    private Medicamento medicamento;
 
     @Override
-    public Validacion validar(String codigoMedicamento) {
-        if(codigoMedicamento.startsWith("A")){
-        compra.getMedioPago();
-        compra.getRecetaMedica();
+    public Boolean validar(Compra compra, Integer unidadesDisponibles) {
+        if (compra.getMedioPago().equals(MedioPagoEnum.TARJETA.getTipoPago())) {
+            return false;
         }
-        return null;
+
+        if (compra.getCantidad() > 3){
+            return false;
+        }
+
+        if (compra.getCantidad() > unidadesDisponibles){
+            return false;
+        }
+        return true;
     }
 }

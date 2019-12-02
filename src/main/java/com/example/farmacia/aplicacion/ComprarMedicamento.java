@@ -1,10 +1,7 @@
 package com.example.farmacia.aplicacion;
 
 
-import com.example.farmacia.dominio.Compra;
-import com.example.farmacia.dominio.Medicamento;
-import com.example.farmacia.dominio.ServicioMedicamento;
-import com.example.farmacia.dominio.Usuario;
+import com.example.farmacia.dominio.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -12,10 +9,10 @@ import java.util.List;
 @Component
 public class ComprarMedicamento {
 
-    private final ServicioMedicamento servicioMedicamento;
+    private final ServicioCompra servicioMedicamento;
     private final FabricaCompra fabricaCompra;
 
-    public ComprarMedicamento(ServicioMedicamento servicioMedicamento, FabricaCompra fabricaCompra) {
+    public ComprarMedicamento(ServicioCompra servicioMedicamento, FabricaCompra fabricaCompra) {
         this.servicioMedicamento = servicioMedicamento;
         this.fabricaCompra = fabricaCompra;
     }

@@ -19,13 +19,11 @@ public class ControladorMedicamento {
 
     private final AgregarMedicamento agregarMedicamento;
     private final EliminarMedicamento eliminarMedicamento;
-    private final ComprarMedicamento comprarMedicamento;
     private final MedicamentoDisponible medicamentoDisponible;
 
-    public ControladorMedicamento(AgregarMedicamento agregarMedicamento, EliminarMedicamento eliminarMedicamento, ComprarMedicamento comprarMedicamento, MedicamentoDisponible medicamentoDisponible) {
+    public ControladorMedicamento(AgregarMedicamento agregarMedicamento, EliminarMedicamento eliminarMedicamento, MedicamentoDisponible medicamentoDisponible) {
         this.agregarMedicamento = agregarMedicamento;
         this.eliminarMedicamento = eliminarMedicamento;
-        this.comprarMedicamento = comprarMedicamento;
         this.medicamentoDisponible = medicamentoDisponible;
     }
 
@@ -49,10 +47,4 @@ public class ControladorMedicamento {
     }
 
 
-    @PostMapping("/comprarMedicamento/{codigoMedicamento}")
-    @ResponseStatus(HttpStatus.OK)
-    public Compra comprar(@Valid @RequestBody ComprarDto comprarDto){
-        return comprarMedicamento.realizarCompra(comprarDto.getNumeroIdentidad(), comprarDto.getCodigoMedicamento(), comprarDto.getMedioPago(),
-                                        comprarDto.getRecetaMedica(), comprarDto.getCantidad());
-    }
 }

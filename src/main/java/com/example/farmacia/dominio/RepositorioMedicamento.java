@@ -15,5 +15,6 @@ public interface RepositorioMedicamento {
 
     Medicamento retornarPorId(String codigoMedicamento);
 
-    List<Medicamento> stockDisponible();
+    Integer actualizarDisponibilidadMedicamento(Integer unidadesHaActualizar, String codigoMedicamento);
+
 }
