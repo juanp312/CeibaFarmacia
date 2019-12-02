@@ -17,8 +17,8 @@ public class AgregarMedicamento {
         this.servicioMedicamento = servicioMedicamento;
     }
 
-    public Medicamento ejecutar (String nombre, String codigoMedicamento){
-        Medicamento medicamento = fabricaMedicamento.crear(nombre, codigoMedicamento);
+    public Medicamento ejecutar (String nombre, String codigoMedicamento, Boolean disponibilidad){
+        Medicamento medicamento = fabricaMedicamento.crear(nombre, codigoMedicamento, disponibilidad);
         return servicioMedicamento.adicionarMedicamento(medicamento);
     }
 

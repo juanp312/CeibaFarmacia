@@ -30,7 +30,8 @@ public class ControladorMedicamento {
     @PostMapping("/medicamento")
     @ResponseStatus(HttpStatus.CREATED)
     public Medicamento agregar(@Valid @RequestBody MedicamentoDto medicamentoDto){
-    return agregarMedicamento.ejecutar(medicamentoDto.getNombreMedicamento(), medicamentoDto.getCodigoMedicamento());
+    return agregarMedicamento.ejecutar(medicamentoDto.getNombreMedicamento(), medicamentoDto.getCodigoMedicamento(),
+                                        medicamentoDto.getDisponibilidad());
 }
 
     @DeleteMapping("/medicamento/{codigoMedicamento}")

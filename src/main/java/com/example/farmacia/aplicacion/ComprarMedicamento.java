@@ -17,9 +17,9 @@ public class ComprarMedicamento {
         this.fabricaCompra = fabricaCompra;
     }
 
-    public Compra realizarCompra(Long numeroIdentidad, String codigoMedicamento, String medioPago, Boolean recetaMedica,
+    public Compra realizarCompra(Long numeroIdentidad, Integer edad, String codigoMedicamento, String medioPago, Boolean recetaMedica,
                                  Integer cantidad){
-        Compra compra = fabricaCompra.comprar(numeroIdentidad, codigoMedicamento, medioPago, recetaMedica, cantidad);
+        Compra compra = fabricaCompra.comprar(numeroIdentidad, edad, codigoMedicamento, medioPago, recetaMedica, cantidad);
         return  servicioMedicamento.comprarMedicamento(compra);
     }
 }

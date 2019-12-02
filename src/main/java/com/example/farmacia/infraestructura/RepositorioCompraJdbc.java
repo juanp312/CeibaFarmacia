@@ -25,13 +25,14 @@ public class RepositorioCompraJdbc implements RepositorioCompra {
 
         Integer registrosInsertados = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection
-                    .prepareStatement("INSERT INTO COMPRA (CODIGO_MEDICAMENTO, NUMERO_IDENTIDAD, MEDIO_PAGO, RECETA, CANTIDAD)\n" +
-                            "VALUES (?, ?, ?, ?, ?)");
+                    .prepareStatement("INSERT INTO COMPRA (CODIGO_MEDICAMENTO, NUMERO_IDENTIDAD, EDAD, MEDIO_PAGO, RECETA, CANTIDAD)\n" +
+                            "VALUES (?, ?, ?, ?, ?, ?)");
             ps.setString(1, compra.getCodigoMedicamento());
             ps.setString(2, compra.getNumeroIdentidad().toString());
-            ps.setString(3, compra.getMedioPago());
-            ps.setString(4, compra.getRecetaMedica().toString());
-            ps.setString(5, compra.getCantidad().toString());
+            ps.setString(3, compra.getEdad().toString());
+            ps.setString(4, compra.getMedioPago());
+            ps.setString(5, compra.getRecetaMedica().toString());
+            ps.setString(6, compra.getCantidad().toString());
             return ps;
         }, keyHolder);
 

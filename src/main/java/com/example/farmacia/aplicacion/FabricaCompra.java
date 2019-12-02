@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class FabricaCompra {
 
-    public Compra comprar(Long numeroIdentidad, String codigoMedicamento, String medioPago, Boolean recetaMedica,
+    public Compra comprar(Long numeroIdentidad, Integer edad, String codigoMedicamento, String medioPago, Boolean recetaMedica,
                           Integer cantidad){
-        return new Compra (codigoMedicamento, numeroIdentidad,  medioPago, recetaMedica, cantidad);
+        return new Compra (codigoMedicamento, numeroIdentidad, edad,  medioPago, recetaMedica, cantidad);
     }
 }

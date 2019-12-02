@@ -9,8 +9,8 @@ import java.util.List;
 
 @Component
     public class FabricaMedicamento {
-        public Medicamento crear(String nombre, String codigoMedicamento){
-        return new Medicamento(nombre,codigoMedicamento, null);
+        public Medicamento crear(String nombre, String codigoMedicamento, Boolean disponibilidad){
+        return new Medicamento(nombre,codigoMedicamento, true);
     }
 
 

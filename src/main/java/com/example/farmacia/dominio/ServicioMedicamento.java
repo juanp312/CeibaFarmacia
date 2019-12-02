@@ -34,7 +34,7 @@ public class ServicioMedicamento {
     //todo validacion eliminar medicamento
     public void eliminarMedicamento(String codigoMedicamento) {
         Medicamento medicamento;
-     //   Optional<Medicamento> medicamentoRetornado = repositorioMedicamento.retornarPorId(codigoMedicamento);
+       //  Optional<Medicamento> medicamentoRetornado = repositorioMedicamento.retornarPorId(codigoMedicamento);
 
 
         //Optional<Medicamento> medicamentoRetornado = repositorioMedicamento.retornarPorId(codigoMedicamento);

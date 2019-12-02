@@ -52,10 +52,11 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
 
         Integer registrosInsertados = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection
-                    .prepareStatement("insert into medicamento (NOMBRE, CODIGO)"
-                            + "values(?, ?)");
+                    .prepareStatement("INSERT INTO MEDICAMENTO (NOMBRE, CODIGO, DISPONIBILIDAD)"
+                            + "VALUES (?, ?, ?)");
             ps.setString(1, medicamento.getNombreMedicamento());
             ps.setString(2, medicamento.getCodigoMedicamento());
+            ps.setString(3, medicamento.getDisponibilidad().toString());
             return ps;
         }, keyHolder);
 

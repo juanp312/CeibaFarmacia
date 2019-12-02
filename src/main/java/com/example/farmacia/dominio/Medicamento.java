@@ -21,4 +21,7 @@ public final class Medicamento {
         return codigoMedicamento;
     }
 
+    public Boolean getDisponibilidad() {
+        return disponibilidad;
+    }
 }

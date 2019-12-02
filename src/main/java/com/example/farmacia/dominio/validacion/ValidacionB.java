@@ -19,6 +19,10 @@ public class ValidacionB implements Validacion {
             return false;
         }
 
+        if(compra.getEdad() < 18) {
+            return false;
+        }
+
         if(compra.getCantidad() > unidadesDisponibles){
             return false;
         }
@@ -26,6 +30,7 @@ public class ValidacionB implements Validacion {
         if(LocalDate.now().getDayOfWeek().equals(domingo)&&(compra.getMedioPago().equals(MedioPagoEnum.TARJETA))){
             return false;
         }
+
         return true;
     }
 }

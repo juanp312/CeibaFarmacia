@@ -12,6 +12,9 @@ public class ComprarDto {
     private Long numeroIdentidad;
 
     @NotNull
+    private Integer edad;
+
+    @NotNull
     private String medioPago;
 
     @NotNull
@@ -20,13 +23,16 @@ public class ComprarDto {
     @NotNull
     private Integer cantidad;
 
-
     public String getCodigoMedicamento() {
         return codigoMedicamento;
     }
 
     public Long getNumeroIdentidad() {
         return numeroIdentidad;
+    }
+
+    public Integer getEdad() {
+        return edad;
     }
 
     public String getMedioPago() {

@@ -24,7 +24,7 @@ public class ControladorCompra {
     @PostMapping("/comprarMedicamento")
     @ResponseStatus(HttpStatus.OK)
     public Compra comprar(@Valid @RequestBody ComprarDto comprarDto){
-        return comprarMedicamento.realizarCompra(comprarDto.getNumeroIdentidad(), comprarDto.getCodigoMedicamento(), comprarDto.getMedioPago(),
+        return comprarMedicamento.realizarCompra(comprarDto.getNumeroIdentidad(), comprarDto.getEdad(), comprarDto.getCodigoMedicamento(), comprarDto.getMedioPago(),
                 comprarDto.getRecetaMedica(), comprarDto.getCantidad());
     }
 }
