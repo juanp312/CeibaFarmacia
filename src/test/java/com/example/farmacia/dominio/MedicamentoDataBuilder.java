@@ -34,9 +34,18 @@ public class MedicamentoDataBuilder {
         return new Medicamento(this.nombreMedicamento, this.codigoMedicamento, this.disponibilidad);
     }
 
-    public static Medicamento crearMedicamentoNombreValido(){
+    public static Medicamento crearMedicamentoNombreValidoConA(){
         return MedicamentoDataBuilder.unMedicamento()
                 .conNombreMedicamento("ANOMBRE_TEST")
+                .conCodigoMedicamento("CODIGO_TEST")
+                .conDisponibilidad(Boolean.TRUE)
+                .build();
+    }
+
+
+    public static Medicamento crearMedicamentoNombreValidoConB(){
+        return MedicamentoDataBuilder.unMedicamento()
+                .conNombreMedicamento("BNOMBRE_TEST")
                 .conCodigoMedicamento("CODIGO_TEST")
                 .conDisponibilidad(Boolean.TRUE)
                 .build();

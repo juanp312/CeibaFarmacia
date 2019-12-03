@@ -1,7 +1,6 @@
 package com.example.farmacia.dominio.validacion;
 
 import com.example.farmacia.dominio.Compra;
-import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.MedioPagoEnum;
 
 public class ValidacionA implements Validacion {

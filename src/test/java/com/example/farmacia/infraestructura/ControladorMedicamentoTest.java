@@ -45,7 +45,7 @@ public class ControladorMedicamentoTest {
     @Test
     public void agregarMedicamentoTest() throws Exception {
         //Arrange
-        Medicamento medicamento = MedicamentoDataBuilder.crearMedicamentoNombreValido();
+        Medicamento medicamento = MedicamentoDataBuilder.crearMedicamentoNombreValidoConA();
         String jsonBody = crearMedicamentoDtoRequestConNombreValido();
         when(agregarMedicamentoMock.ejecutar(anyString(),anyString(), anyBoolean())).thenReturn(medicamento);
 
