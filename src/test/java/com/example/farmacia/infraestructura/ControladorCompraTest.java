@@ -12,10 +12,15 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.junit.Assert.*;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class ControladorCompraTest {
@@ -61,8 +66,22 @@ public class ControladorCompraTest {
                 "    \"cantidad\":  2\n" +
                 "}";
     }
-    }
 
-  //  @Test
-   // public void listaCompras() {
-    //}
+
+   @Test
+    public void listaCompras() throws Exception{
+
+    //Arrange
+       List<Compra> compras = Arrays.asList(CompraDataBuilder.crearCompra());
+       when(comprasHechasMock.consultar()).thenReturn(compras);
+
+    //Act Assert
+       mockMvc.perform(get("/compras")
+               .contentType(MediaType.APPLICATION_JSON))
+               .andExpect(status().isOk())
+               .andExpect(jsonPath("$", hasSize(compras.size())));
+
+       verify(comprasHechasMock, times(1)).consultar();
+}
+
+}
