@@ -32,19 +32,13 @@ public class ControladorMedicamentoTest {
     private AgregarMedicamento agregarMedicamentoMock;
 
     @Mock
-    private ComprarMedicamento comprarMedicamentoMock;
-
-    @Mock
     private EliminarMedicamento eliminarMedicamentoMock;
 
-    @Mock
-    private MedicamentoDisponible medicamentoDisponibleMock;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        controladorMedicamento = new ControladorMedicamento(agregarMedicamentoMock,eliminarMedicamentoMock,
-                comprarMedicamentoMock,medicamentoDisponibleMock);
+        controladorMedicamento = new ControladorMedicamento(agregarMedicamentoMock,eliminarMedicamentoMock);
         mockMvc = MockMvcBuilders.standaloneSetup(controladorMedicamento).build();
     }
 
@@ -53,7 +47,7 @@ public class ControladorMedicamentoTest {
         //Arrange
         Medicamento medicamento = MedicamentoDataBuilder.crearMedicamentoNombreValido();
         String jsonBody = crearMedicamentoDtoRequestConNombreValido();
-        when(agregarMedicamentoMock.ejecutar(anyString(),anyString())).thenReturn(medicamento);
+        when(agregarMedicamentoMock.ejecutar(anyString(),anyString(), anyBoolean())).thenReturn(medicamento);
 
         //Act Assert
         mockMvc.perform(post("/medicamento")
@@ -63,7 +57,7 @@ public class ControladorMedicamentoTest {
                 .andExpect(jsonPath("$.nombreMedicamento", is(medicamento.getNombreMedicamento())))
                 .andExpect(jsonPath("$.codigoMedicamento", is(medicamento.getCodigoMedicamento())));
 
-        verify(agregarMedicamentoMock, times(1)).ejecutar(anyString(), anyString());
+        verify(agregarMedicamentoMock, times(1)).ejecutar(anyString(), anyString(), anyBoolean());
 
     }
 
@@ -73,7 +67,7 @@ public class ControladorMedicamentoTest {
         //Arrange
         Medicamento medicamento = MedicamentoDataBuilder.crearMedicamentoNombreInvalido();
         String jsonBody = crearMedicamentoDtoRequestConNombreInvalido();
-        when(agregarMedicamentoMock.ejecutar(anyString(), anyString())).thenThrow(new RegistroNoEncontradoException());
+        when(agregarMedicamentoMock.ejecutar(anyString(), anyString(), anyBoolean())).thenThrow(new RegistroNoEncontradoException());
 
         //Act Assert
         mockMvc.perform(post("/medicamento")
@@ -81,20 +75,22 @@ public class ControladorMedicamentoTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isInternalServerError());
 
-        verify(agregarMedicamentoMock, times(1)).ejecutar(anyString(), anyString());
+        verify(agregarMedicamentoMock, times(1)).ejecutar(anyString(), anyString(), anyBoolean());
     }
 
 
     private String crearMedicamentoDtoRequestConNombreValido() {
         return "   { \"nombreMedicamento\": \"anombre_ejemplo\",\n" +
-                "    \"codigoMedicamento\": \"codigo_ejemplo\"\n" +
+                "    \"codigoMedicamento\": \"codigo_ejemplo\",\n" +
+                "    \"disponibilidad\":  true\n" +
                 "}";
     }
 
 
     private String crearMedicamentoDtoRequestConNombreInvalido() {
         return "   { \"nombreMedicamento\": \"nombre_ejemplo\",\n" +
-                "    \"codigoMedicamento\": \"codigo_ejemplo\"\n" +
+                "    \"codigoMedicamento\": \"codigo_ejemplo\",\n" +
+                "    \"disponibilidad\":  true\n" +
                 "}";
     }
 

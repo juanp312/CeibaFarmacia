@@ -14,7 +14,6 @@ public class Compra {
     private LocalDate fecha;
 
     public Compra(){
-
     }
 
     public Compra(String codigoMedicamento, Long numeroIdentidad, Integer edad, String medioPago, Boolean recetaMedica, Integer cantidad) {
