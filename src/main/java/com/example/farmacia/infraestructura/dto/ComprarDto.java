@@ -23,6 +23,7 @@ public class ComprarDto {
     @NotNull
     private Integer cantidad;
 
+
     public String getCodigoMedicamento() {
         return codigoMedicamento;
     }

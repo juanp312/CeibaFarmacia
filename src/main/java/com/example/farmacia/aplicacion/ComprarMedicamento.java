@@ -4,6 +4,7 @@ package com.example.farmacia.aplicacion;
 import com.example.farmacia.dominio.*;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Component

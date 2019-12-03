@@ -1,5 +1,6 @@
 package com.example.farmacia.dominio;
 
+
 public class CompraDataBuilder {
 
     private String codigoMedicamento;
@@ -45,7 +46,6 @@ public class CompraDataBuilder {
         return this;
     }
 
-
     public Compra build() {
         return new Compra(
                 this.codigoMedicamento,
@@ -55,7 +55,6 @@ public class CompraDataBuilder {
                 this.recetaMedica,
                 this.cantidad);
     }
-
     public static Compra crearCompra(){
         return CompraDataBuilder.unaCompra()
                 .conCodigoMedicamento("CODIGO_MEDICAMENTO_TEST")

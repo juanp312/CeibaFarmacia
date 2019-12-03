@@ -2,9 +2,7 @@ package com.example.farmacia.infraestructura;
 
 import com.example.farmacia.dominio.*;
 import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -69,7 +67,7 @@ public class RepositorioCompraJdbc implements RepositorioCompra {
                 resultSet.getString("MEDIO_PAGO"),
                 resultSet.getBoolean("RECETA"),
                 resultSet.getInt("CANTIDAD")
-        );
+                );
         return compra;
     }
 }
