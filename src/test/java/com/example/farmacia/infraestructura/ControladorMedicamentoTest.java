@@ -1,7 +1,6 @@
 package com.example.farmacia.infraestructura;
 
 import com.example.farmacia.aplicacion.AgregarMedicamento;
-import com.example.farmacia.aplicacion.ComprarMedicamento;
 import com.example.farmacia.aplicacion.EliminarMedicamento;
 import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.MedicamentoDataBuilder;
@@ -19,6 +18,7 @@ import org.springframework.web.util.NestedServletException;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -61,7 +61,6 @@ public class ControladorMedicamentoTest {
 
     }
 
-    //todo crear comtrolador adviser en la capa de infraestructura
     @Test(expected = NestedServletException.class)
     public void agregarMedicamentoInvalidoTest() throws  Exception{
         //Arrange
@@ -77,6 +76,20 @@ public class ControladorMedicamentoTest {
 
         verify(agregarMedicamentoMock, times(1)).ejecutar(anyString(), anyString(), anyBoolean());
     }
+
+    @Test
+    public void eliminarTest() throws Exception{
+
+        //Arrange
+        doNothing().when(eliminarMedicamentoMock).borrar(any(Integer.class));
+
+        //Act Assert
+        mockMvc.perform(delete("/medicamento/{id}", 1l)).andExpect(status().isOk());
+
+        verify(eliminarMedicamentoMock, times(1)).borrar(any(Integer.class));
+    }
+
+
 
 
     private String crearMedicamentoDtoRequestConNombreValido() {
