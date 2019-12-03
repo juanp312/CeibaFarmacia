@@ -1,7 +1,6 @@
 package com.example.farmacia.infraestructura;
 
 import com.example.farmacia.aplicacion.AgregarMedicamento;
-import com.example.farmacia.aplicacion.ComprarMedicamento;
 import com.example.farmacia.aplicacion.EliminarMedicamento;
 import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.MedicamentoDataBuilder;
@@ -45,7 +44,7 @@ public class ControladorMedicamentoTest {
     @Test
     public void agregarMedicamentoTest() throws Exception {
         //Arrange
-        Medicamento medicamento = MedicamentoDataBuilder.crearMedicamentoNombreValido();
+        Medicamento medicamento = MedicamentoDataBuilder.crearMedicamentoNombreValidoConA();
         String jsonBody = crearMedicamentoDtoRequestConNombreValido();
         when(agregarMedicamentoMock.ejecutar(anyString(),anyString(), anyBoolean())).thenReturn(medicamento);
 
