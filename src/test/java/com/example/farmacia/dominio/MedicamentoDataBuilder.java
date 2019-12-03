@@ -4,6 +4,7 @@ public class MedicamentoDataBuilder {
 
     private String nombreMedicamento;
     private String codigoMedicamento;
+    private Boolean disponibilidad;
 
 
     private MedicamentoDataBuilder() {
@@ -24,14 +25,20 @@ public class MedicamentoDataBuilder {
         return this;
     }
 
+    public MedicamentoDataBuilder conDisponibilidad(Boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
+        return this;
+    }
+
     public Medicamento build() {
-        return new Medicamento(this.nombreMedicamento, this.codigoMedicamento, null);
+        return new Medicamento(this.nombreMedicamento, this.codigoMedicamento, this.disponibilidad);
     }
 
     public static Medicamento crearMedicamentoNombreValido(){
         return MedicamentoDataBuilder.unMedicamento()
                 .conNombreMedicamento("ANOMBRE_TEST")
                 .conCodigoMedicamento("CODIGO_TEST")
+                .conDisponibilidad(Boolean.TRUE)
                 .build();
     }
 
@@ -40,6 +47,7 @@ public class MedicamentoDataBuilder {
         return MedicamentoDataBuilder.unMedicamento()
                 .conNombreMedicamento("NOMBRE_TEST")
                 .conCodigoMedicamento("CODIGO_TEST")
+                .conDisponibilidad(Boolean.TRUE)
                 .build();
     }
 

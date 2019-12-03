@@ -11,7 +11,6 @@ public class Compra {
     private String medioPago;
     private Boolean recetaMedica;
     private Integer cantidad;
-    private LocalDate fecha;
 
     public Compra(){
     }
@@ -23,7 +22,6 @@ public class Compra {
         this.medioPago = medioPago;
         this.recetaMedica = recetaMedica;
         this.cantidad = cantidad;
-        this.fecha = LocalDate.now();
     }
 
     public String getCodigoMedicamento() {
