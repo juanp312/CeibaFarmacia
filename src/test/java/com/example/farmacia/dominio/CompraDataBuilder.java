@@ -1,6 +1,9 @@
 package com.example.farmacia.dominio;
 
 
+import com.example.farmacia.dominio.entidades.Compra;
+import com.example.farmacia.dominio.validacion.MedioPagoEnum;
+
 public class CompraDataBuilder {
 
     private String codigoMedicamento;

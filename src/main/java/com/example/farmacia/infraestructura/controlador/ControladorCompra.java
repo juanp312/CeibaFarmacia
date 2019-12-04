@@ -1,9 +1,9 @@
-package com.example.farmacia.infraestructura;
+package com.example.farmacia.infraestructura.controlador;
 
 
 import com.example.farmacia.aplicacion.ComprarMedicamento;
 import com.example.farmacia.aplicacion.ComprasHechas;
-import com.example.farmacia.dominio.Compra;
+import com.example.farmacia.dominio.entidades.Compra;
 import com.example.farmacia.infraestructura.dto.ComprarDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

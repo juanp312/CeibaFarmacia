@@ -1,8 +1,8 @@
-package com.example.farmacia.infraestructura;
+package com.example.farmacia.infraestructura.controlador;
 
 import com.example.farmacia.aplicacion.AgregarMedicamento;
 import com.example.farmacia.aplicacion.EliminarMedicamento;
-import com.example.farmacia.dominio.Medicamento;
+import com.example.farmacia.dominio.entidades.Medicamento;
 import com.example.farmacia.infraestructura.dto.MedicamentoDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

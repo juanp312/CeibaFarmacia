@@ -1,6 +1,9 @@
-package com.example.farmacia.dominio;
+package com.example.farmacia.dominio.servicios;
 
 
+import com.example.farmacia.dominio.entidades.Compra;
+import com.example.farmacia.dominio.puertos.RepositorioCompra;
+import com.example.farmacia.dominio.puertos.RepositorioMedicamento;
 import com.example.farmacia.dominio.excepcion.CompraNoPermitidaException;
 import com.example.farmacia.dominio.validacion.RouterValidacionImplementacion;
 import com.example.farmacia.dominio.validacion.Validacion;

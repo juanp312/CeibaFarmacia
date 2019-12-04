@@ -1,5 +1,7 @@
 package com.example.farmacia.dominio;
 
+import com.example.farmacia.dominio.entidades.Medicamento;
+
 public class MedicamentoDataBuilder {
 
     private String nombreMedicamento;
@@ -37,7 +39,7 @@ public class MedicamentoDataBuilder {
     public static Medicamento crearMedicamentoNombreValidoConA(){
         return MedicamentoDataBuilder.unMedicamento()
                 .conNombreMedicamento("ANOMBRE_TEST")
-                .conCodigoMedicamento("CODIGO_TEST")
+                .conCodigoMedicamento("ACODIGO_TEST")
                 .conDisponibilidad(Boolean.TRUE)
                 .build();
     }
@@ -46,7 +48,7 @@ public class MedicamentoDataBuilder {
     public static Medicamento crearMedicamentoNombreValidoConB(){
         return MedicamentoDataBuilder.unMedicamento()
                 .conNombreMedicamento("BNOMBRE_TEST")
-                .conCodigoMedicamento("CODIGO_TEST")
+                .conCodigoMedicamento("BCODIGO_TEST")
                 .conDisponibilidad(Boolean.TRUE)
                 .build();
     }

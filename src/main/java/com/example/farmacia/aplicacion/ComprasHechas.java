@@ -1,7 +1,7 @@
 package com.example.farmacia.aplicacion;
 
-import com.example.farmacia.dominio.Compra;
-import com.example.farmacia.dominio.RepositorioCompra;
+import com.example.farmacia.dominio.entidades.Compra;
+import com.example.farmacia.dominio.puertos.RepositorioCompra;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

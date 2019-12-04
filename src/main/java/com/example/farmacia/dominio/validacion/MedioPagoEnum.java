@@ -1,4 +1,4 @@
-package com.example.farmacia.dominio;
+package com.example.farmacia.dominio.validacion;
 
 public enum MedioPagoEnum {
     EFECTIVO("efectivo"),

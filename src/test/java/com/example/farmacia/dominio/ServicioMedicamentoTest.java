@@ -1,7 +1,10 @@
 package com.example.farmacia.dominio;
 
+import com.example.farmacia.dominio.entidades.Medicamento;
 import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
 import com.example.farmacia.dominio.excepcion.RegistroNoEncontradoException;
+import com.example.farmacia.dominio.puertos.RepositorioMedicamento;
+import com.example.farmacia.dominio.servicios.ServicioMedicamento;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

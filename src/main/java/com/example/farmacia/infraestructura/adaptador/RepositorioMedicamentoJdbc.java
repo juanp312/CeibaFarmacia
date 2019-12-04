@@ -1,7 +1,7 @@
-package com.example.farmacia.infraestructura;
+package com.example.farmacia.infraestructura.adaptador;
 
-import com.example.farmacia.dominio.Medicamento;
-import com.example.farmacia.dominio.RepositorioMedicamento;
+import com.example.farmacia.dominio.entidades.Medicamento;
+import com.example.farmacia.dominio.puertos.RepositorioMedicamento;
 import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;

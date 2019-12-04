@@ -1,8 +1,8 @@
 package com.example.farmacia.infraestructura;
 
-import com.example.farmacia.dominio.Medicamento;
+import com.example.farmacia.dominio.entidades.Medicamento;
 import com.example.farmacia.dominio.MedicamentoDataBuilder;
-import com.example.farmacia.dominio.RepositorioMedicamento;
+import com.example.farmacia.dominio.puertos.RepositorioMedicamento;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

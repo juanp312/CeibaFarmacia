@@ -1,6 +1,6 @@
 package com.example.farmacia.dominio.validacion;
 
-import com.example.farmacia.dominio.Compra;
+import com.example.farmacia.dominio.entidades.Compra;
 
 public interface Validacion {
 

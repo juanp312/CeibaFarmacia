@@ -1,4 +1,6 @@
-package com.example.farmacia.dominio;
+package com.example.farmacia.dominio.puertos;
+
+import com.example.farmacia.dominio.entidades.Compra;
 
 import java.util.List;
 

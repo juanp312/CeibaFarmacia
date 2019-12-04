@@ -2,9 +2,10 @@ package com.example.farmacia.infraestructura;
 
 import com.example.farmacia.aplicacion.AgregarMedicamento;
 import com.example.farmacia.aplicacion.EliminarMedicamento;
-import com.example.farmacia.dominio.Medicamento;
+import com.example.farmacia.dominio.entidades.Medicamento;
 import com.example.farmacia.dominio.MedicamentoDataBuilder;
 import com.example.farmacia.dominio.excepcion.RegistroNoEncontradoException;
+import com.example.farmacia.infraestructura.controlador.ControladorMedicamento;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

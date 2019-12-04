@@ -1,8 +1,9 @@
 package com.example.farmacia.aplicacion;
 
 
-import com.example.farmacia.dominio.Medicamento;
-import com.example.farmacia.dominio.ServicioMedicamento;
+import com.example.farmacia.aplicacion.fabrica.FabricaMedicamento;
+import com.example.farmacia.dominio.entidades.Medicamento;
+import com.example.farmacia.dominio.servicios.ServicioMedicamento;
 import org.springframework.stereotype.Component;
 
 @Component

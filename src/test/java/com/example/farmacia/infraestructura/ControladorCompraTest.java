@@ -2,8 +2,9 @@ package com.example.farmacia.infraestructura;
 
 import com.example.farmacia.aplicacion.ComprarMedicamento;
 import com.example.farmacia.aplicacion.ComprasHechas;
-import com.example.farmacia.dominio.Compra;
+import com.example.farmacia.dominio.entidades.Compra;
 import com.example.farmacia.dominio.CompraDataBuilder;
+import com.example.farmacia.infraestructura.controlador.ControladorCompra;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

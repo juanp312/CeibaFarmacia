@@ -1,8 +1,7 @@
 package com.example.farmacia.dominio.validacion;
 
-import com.example.farmacia.dominio.Compra;
+import com.example.farmacia.dominio.entidades.Compra;
 import com.example.farmacia.dominio.CompraDataBuilder;
-import com.example.farmacia.dominio.MedioPagoEnum;
 import org.junit.Before;
 import org.junit.Test;
 

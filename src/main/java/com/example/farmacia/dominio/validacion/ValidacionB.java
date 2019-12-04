@@ -1,7 +1,6 @@
 package com.example.farmacia.dominio.validacion;
 
-import com.example.farmacia.dominio.Compra;
-import com.example.farmacia.dominio.MedioPagoEnum;
+import com.example.farmacia.dominio.entidades.Compra;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;

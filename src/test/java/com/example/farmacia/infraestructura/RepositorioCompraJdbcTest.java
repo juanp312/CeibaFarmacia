@@ -1,8 +1,8 @@
 package com.example.farmacia.infraestructura;
 
-import com.example.farmacia.dominio.Compra;
+import com.example.farmacia.dominio.entidades.Compra;
 import com.example.farmacia.dominio.CompraDataBuilder;
-import com.example.farmacia.dominio.RepositorioCompra;
+import com.example.farmacia.dominio.puertos.RepositorioCompra;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,8 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 import java.util.stream.Stream;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
