@@ -3,14 +3,12 @@ package com.example.farmacia.infraestructura;
 import com.example.farmacia.dominio.Medicamento;
 import com.example.farmacia.dominio.RepositorioMedicamento;
 import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
-import java.util.List;
 
 @Repository
 public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
