@@ -22,6 +22,7 @@ public class ControladorCompra {
         this.comprasHechas = comprasHechas;
     }
 
+    @CrossOrigin
     @PostMapping("/comprarMedicamento")
     @ResponseStatus(HttpStatus.OK)
     public Compra comprar(@Valid @RequestBody ComprarDto comprarDto){
@@ -29,6 +30,7 @@ public class ControladorCompra {
                 comprarDto.getRecetaMedica(), comprarDto.getCantidad());
     }
 
+    @CrossOrigin
     @GetMapping("/compras")
     @ResponseStatus(HttpStatus.OK)
     public List<Compra> listaCompras(){

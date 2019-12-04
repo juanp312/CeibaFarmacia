@@ -20,6 +20,7 @@ public class ControladorMedicamento {
         this.eliminarMedicamento = eliminarMedicamento;
     }
 
+    @CrossOrigin
     @PostMapping("/medicamento")
     @ResponseStatus(HttpStatus.CREATED)
     public Medicamento agregar(@Valid @RequestBody MedicamentoDto medicamentoDto){
@@ -27,6 +28,7 @@ public class ControladorMedicamento {
                                         medicamentoDto.getDisponibilidad());
 }
 
+    @CrossOrigin
     @DeleteMapping("/medicamento/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void eliminar(@PathVariable Integer id) {
