@@ -28,6 +28,18 @@ public class RouterValidacionImplementacionTest {
         assertTrue(validacion instanceof ValidacionA);
     }
 
+    @Test
+    public void direccionarCodigoConBTest(){
+        //Arrange
+        String codigoEmpiezaConB = "bCodigo";
+
+        //Act
+        Validacion validacion = routerValidacion.direccionar(codigoEmpiezaConB);
+
+        //Assert
+        assertTrue(validacion instanceof ValidacionB);
+    }
+
     @Test(expected = RegistroInvalidoException.class)
     public void direcionarCodigoDiferenteAoBTest() {
         //Arrange
