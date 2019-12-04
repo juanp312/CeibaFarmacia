@@ -19,7 +19,6 @@ public class ServicioCompra {
         this.routerValidacionImplementacion = routerValidacionImplementacion;
     }
 
-    //todo validacion para comprar
     public Compra comprarMedicamento (Compra compra) {
         Integer unidadesDisponibles = repositorioCompra.stockDisponible(compra.getCodigoMedicamento());
         Validacion validacion = routerValidacionImplementacion.direccionar(compra.getCodigoMedicamento());

@@ -27,7 +27,8 @@ public class ValidacionB implements Validacion {
             return false;
         }
 
-        if(LocalDate.now().getDayOfWeek().equals(domingo)&&(compra.getMedioPago().equals(MedioPagoEnum.TARJETA))){
+        if(LocalDate.now().getDayOfWeek().equals(domingo) &&
+                (compra.getMedioPago().equals(MedioPagoEnum.TARJETA.getTipoPago()))){
             return false;
         }
 

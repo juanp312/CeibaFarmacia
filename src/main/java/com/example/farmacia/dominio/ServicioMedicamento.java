@@ -5,23 +5,16 @@ import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Component
 public class ServicioMedicamento {
 
     private final RepositorioMedicamento repositorioMedicamento;
-    private final RepositorioCompra repositorioComprar;
 
 
-    public ServicioMedicamento(RepositorioMedicamento repositorioMedicamento, RepositorioCompra repositorioComprar) {
+    public ServicioMedicamento(RepositorioMedicamento repositorioMedicamento) {
         this.repositorioMedicamento = repositorioMedicamento;
-        this.repositorioComprar = repositorioComprar;
     }
 
-
-    //todo validacion agregar Medicamento
     public Medicamento adicionarMedicamento(Medicamento medicamento) {
         if (medicamento.getNombreMedicamento().toUpperCase().startsWith("A") ||
                 medicamento.getNombreMedicamento().toUpperCase().startsWith("B")) {
@@ -30,7 +23,6 @@ public class ServicioMedicamento {
         throw new RegistroInvalidoException("No se pueden agregar medicamentos de este tipo");
     }
 
-    //todo validacion eliminar medicamento
     public void eliminarMedicamento(Integer id) {
         try {
             repositorioMedicamento.eliminar(id);

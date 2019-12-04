@@ -22,13 +22,10 @@ public class ServicioMedicamentoTest {
     @Mock
     private RepositorioMedicamento repositorioMedicamentoMock;
 
-    @Mock
-    private RepositorioCompra repositorioComprarMock;
-
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        servicioMedicamento = new ServicioMedicamento(repositorioMedicamentoMock, repositorioComprarMock);
+        servicioMedicamento = new ServicioMedicamento(repositorioMedicamentoMock);
         mockMvc = MockMvcBuilders.standaloneSetup(servicioMedicamento).build();
     }
 

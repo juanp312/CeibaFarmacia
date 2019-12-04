@@ -16,7 +16,6 @@ public class ComprasHechas {
     }
 
     public List<Compra> consultar(){
-        List<Compra> listaCompras = repositorioCompra.retornar();
-        return  listaCompras;
+        return repositorioCompra.retornar();
     }
 }

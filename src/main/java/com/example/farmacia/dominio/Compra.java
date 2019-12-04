@@ -1,8 +1,6 @@
 package com.example.farmacia.dominio;
 
 
-import java.time.LocalDate;
-
 public class Compra {
 
     private String codigoMedicamento;

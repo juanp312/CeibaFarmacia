@@ -60,7 +60,7 @@ public class RepositorioCompraJdbc implements RepositorioCompra {
     }
 
     public Compra mapRow(ResultSet resultSet, int i) throws SQLException {
-        Compra compra = new Compra(
+        return new Compra(
                 resultSet.getString("CODIGO_MEDICAMENTO"),
                 resultSet.getLong("NUMERO_IDENTIDAD"),
                 resultSet.getInt("EDAD"),
@@ -68,7 +68,6 @@ public class RepositorioCompraJdbc implements RepositorioCompra {
                 resultSet.getBoolean("RECETA"),
                 resultSet.getInt("CANTIDAD")
                 );
-        return compra;
     }
 }
 

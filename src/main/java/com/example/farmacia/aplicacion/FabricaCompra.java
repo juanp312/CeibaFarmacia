@@ -3,8 +3,6 @@ package com.example.farmacia.aplicacion;
 import com.example.farmacia.dominio.Compra;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-
 @Component
 public class FabricaCompra {
 
