@@ -14,9 +14,6 @@ public class ValidacionA implements Validacion {
             return false;
         }
 
-        if (compra.getCantidad() > unidadesDisponibles){
-            return false;
-        }
-        return true;
+        return compra.getCantidad() <= unidadesDisponibles;
     }
 }
