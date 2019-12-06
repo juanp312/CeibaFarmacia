@@ -85,7 +85,7 @@ public class ControladorMedicamentoTest {
         doNothing().when(eliminarMedicamentoMock).borrar(any(Integer.class));
 
         //Act Assert
-        mockMvc.perform(delete("/medicamento/{id}", 1l)).andExpect(status().isOk());
+        mockMvc.perform(delete("/medicamento/{id}", 1L)).andExpect(status().isOk());
 
         verify(eliminarMedicamentoMock, times(1)).borrar(any(Integer.class));
     }

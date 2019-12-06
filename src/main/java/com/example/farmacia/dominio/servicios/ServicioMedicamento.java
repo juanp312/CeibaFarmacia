@@ -29,7 +29,7 @@ public class ServicioMedicamento {
         try {
             repositorioMedicamento.eliminar(id);
         } catch (EmptyResultDataAccessException e) {
-            throw new RegistroNoEncontradoException(e, "No se encontro registro para el Id solicitado");
+            throw new RegistroNoEncontradoException("No se encontro registro para el Id solicitado");
         }
 
     }

@@ -33,7 +33,7 @@ public class RepositorioCompraJdbcTest {
         //Assert
         Assert.assertNotNull(compraCreada);
     }
-    
+
     @Test
     public void retornarListasCompra() {
         //Arrange
