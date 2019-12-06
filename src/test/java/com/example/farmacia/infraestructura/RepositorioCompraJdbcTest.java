@@ -2,8 +2,8 @@ package com.example.farmacia.infraestructura;
 
 import com.example.farmacia.dominio.entidades.Compra;
 import com.example.farmacia.dominio.CompraDataBuilder;
+import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
 import com.example.farmacia.dominio.puertos.RepositorioCompra;
-import com.example.farmacia.dominio.validacion.MedioPagoEnum;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,9 +33,7 @@ public class RepositorioCompraJdbcTest {
         //Assert
         Assert.assertNotNull(compraCreada);
     }
-
-
-
+    
     @Test
     public void retornarListasCompra() {
         //Arrange

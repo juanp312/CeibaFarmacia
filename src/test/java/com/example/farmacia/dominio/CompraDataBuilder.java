@@ -68,5 +68,4 @@ public class CompraDataBuilder {
                 .conRecetaMedica(Boolean.TRUE)
                 .build();
     }
-
 }

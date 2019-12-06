@@ -39,12 +39,7 @@ public class RepositorioCompraJdbc implements RepositorioCompra {
             ps.setString(6, compra.getCantidad().toString());
             return ps;
         }, keyHolder);
-
-        if (registrosInsertados > 0) {
-            return compra;
-        } else {
-            throw new RegistroInvalidoException();
-        }
+        return  compra;
     }
 
     @Override
