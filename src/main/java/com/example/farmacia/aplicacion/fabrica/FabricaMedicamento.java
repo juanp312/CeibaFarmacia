@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
     public class FabricaMedicamento {
-        public Medicamento crear(String nombre, String codigoMedicamento, Boolean disponibilidad){
+        public Medicamento crear(String nombre, String codigoMedicamento){
         return new Medicamento(nombre,codigoMedicamento, true);
     }
 

@@ -48,7 +48,7 @@ public class ControladorMedicamentoTest {
         //Arrange
         Medicamento medicamento = MedicamentoDataBuilder.crearMedicamentoNombreValidoConA();
         String jsonBody = crearMedicamentoDtoRequestConNombreValido();
-        when(agregarMedicamentoMock.ejecutar(anyString(),anyString(), anyBoolean())).thenReturn(medicamento);
+        when(agregarMedicamentoMock.ejecutar(anyString(),anyString())).thenReturn(medicamento);
 
         //Act Assert
         mockMvc.perform(post("/medicamento")
@@ -58,7 +58,7 @@ public class ControladorMedicamentoTest {
                 .andExpect(jsonPath("$.nombreMedicamento", is(medicamento.getNombreMedicamento())))
                 .andExpect(jsonPath("$.codigoMedicamento", is(medicamento.getCodigoMedicamento())));
 
-        verify(agregarMedicamentoMock, times(1)).ejecutar(anyString(), anyString(), anyBoolean());
+        verify(agregarMedicamentoMock, times(1)).ejecutar(anyString(), anyString());
 
     }
 
@@ -67,7 +67,7 @@ public class ControladorMedicamentoTest {
         //Arrange
         Medicamento medicamento = MedicamentoDataBuilder.crearMedicamentoNombreInvalido();
         String jsonBody = crearMedicamentoDtoRequestConNombreInvalido();
-        when(agregarMedicamentoMock.ejecutar(anyString(), anyString(), anyBoolean())).thenThrow(new RegistroNoEncontradoException());
+        when(agregarMedicamentoMock.ejecutar(anyString(), anyString())).thenThrow(new RegistroNoEncontradoException());
 
         //Act Assert
         mockMvc.perform(post("/medicamento")
@@ -75,7 +75,7 @@ public class ControladorMedicamentoTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isInternalServerError());
 
-        verify(agregarMedicamentoMock, times(1)).ejecutar(anyString(), anyString(), anyBoolean());
+        verify(agregarMedicamentoMock, times(1)).ejecutar(anyString(), anyString());
     }
 
     @Test

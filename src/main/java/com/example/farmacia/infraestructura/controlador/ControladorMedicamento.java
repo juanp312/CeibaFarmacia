@@ -24,8 +24,8 @@ public class ControladorMedicamento {
     @PostMapping("/medicamento")
     @ResponseStatus(HttpStatus.CREATED)
     public Medicamento agregar(@Valid @RequestBody MedicamentoDto medicamentoDto){
-    return agregarMedicamento.ejecutar(medicamentoDto.getNombreMedicamento(), medicamentoDto.getCodigoMedicamento(),
-                                        medicamentoDto.getDisponibilidad());
+    return agregarMedicamento.ejecutar(medicamentoDto.getNombreMedicamento(), medicamentoDto.getCodigoMedicamento()
+    );
 }
 
     @CrossOrigin
