@@ -31,7 +31,7 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
     public Medicamento crear(Medicamento medicamento) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        Integer registrosInsertados = jdbcTemplate.update(connection -> {
+        jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection
                     .prepareStatement("INSERT INTO MEDICAMENTO (NOMBRE, CODIGO, DISPONIBILIDAD)"
                             + "VALUES (?, ?, ?)");
@@ -40,12 +40,7 @@ public class RepositorioMedicamentoJdbc implements RepositorioMedicamento {
             ps.setString(3, medicamento.getDisponibilidad().toString());
             return ps;
         }, keyHolder);
-
-        if (registrosInsertados > 0) {
-            return medicamento;
-        } else {
-            throw new RegistroInvalidoException();
-        }
+        return medicamento;
     }
 
 
