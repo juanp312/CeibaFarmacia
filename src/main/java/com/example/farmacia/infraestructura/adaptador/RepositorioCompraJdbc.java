@@ -1,7 +1,6 @@
 package com.example.farmacia.infraestructura.adaptador;
 
 import com.example.farmacia.dominio.entidades.Compra;
-import com.example.farmacia.dominio.excepcion.RegistroInvalidoException;
 import com.example.farmacia.dominio.puertos.RepositorioCompra;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -27,7 +26,7 @@ public class RepositorioCompraJdbc implements RepositorioCompra {
     public Compra crear(Compra compra) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        Integer registrosInsertados = jdbcTemplate.update(connection -> {
+        jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection
                     .prepareStatement("INSERT INTO COMPRA (CODIGO_MEDICAMENTO, NUMERO_IDENTIDAD, EDAD, MEDIO_PAGO, RECETA, CANTIDAD)\n" +
                             "VALUES (?, ?, ?, ?, ?, ?)");
