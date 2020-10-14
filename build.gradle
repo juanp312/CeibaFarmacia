@@ -4,6 +4,7 @@ plugins {
 	id 'java'
 	id 'jacoco'
 	id "org.sonarqube" version "2.7"
+
 }
 
 group = 'com.example'
@@ -12,6 +13,16 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
+	maven {
+		url "http://repo.mycompany.com/maven2"
+		credentials(HttpHeaderCredentials) {
+			name = "farmaciaToken"
+			value = "jl4fnok7s24hia3vkvfstse3zcttkbf6htxnbu563zotq6r22u5q"
+		}
+		authentication {
+			header(HttpHeaderAuthentication)
+		}
+	}
 }
 
 sonarqube {
@@ -28,6 +39,22 @@ sonarqube {
 apply plugin: 'jacoco'
 apply plugin: 'java'
 
+repositories {
+	mavenCentral()
+
+	maven {
+		url 'https://pkgs.dev.azure.com/juanechavarria/0404053f-44ca-4d50-a071-b5aea7dc90a1/_packaging/Prueba/maven/v1'
+		name 'Prueba'
+		credentials(HttpHeaderCredentials) {
+			name = "PruebaToken"
+			value = "xa7clbbropdlczbzy3ds4dcjqte6bz7hrdncy6h6xblfhsfeff3a"
+		}
+		authentication {
+			header(HttpHeaderAuthentication)
+		}
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -37,6 +64,19 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 }
+
+repositories {
+	maven {
+		url 'https://pkgs.dev.azure.com/juanechavarria/Testing App/_packaging/Prueba/maven/v1'
+		credentials {
+			username "Azure DevOps Services"
+			//The Azure DevOps Services build system will use the "SYSTEM_ACCESSTOKEN" to authenticate to Azure DevOps Services feeds
+			password System.getenv("AZURE_ARTIFACTS_ENV_ACCESS_TOKEN") != null ? System.getenv("AZURE_ARTIFACTS_ENV_ACCESS_TOKEN") : vstsMavenAccessToken
+		}
+	}
+}
+
+
 
 test {
 	useJUnit()
